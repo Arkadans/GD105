@@ -38,6 +38,12 @@ void draw () {
   fill(191, 10, 19);
   rect(anchorCT.x +0, anchorCT.y +140, 
                  395,           395);
-
-
+                 
+// this saves the canvas on the first frame
+  // so we can get a clean image of the output easily
+  if(frameCount == 1) {
+    String filename = "output";
+    save(filename + ".png");
+    print("canvas saved as " + filename + ".png");
+  }
 }
