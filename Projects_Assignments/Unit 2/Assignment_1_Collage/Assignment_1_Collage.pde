@@ -5,12 +5,14 @@ PFont calm;
 
 void setup() {
   size(600, 800);
+  println("This is my own version of the keep calm meme, utilizing a simple space ship made by me :p"); 
   spaceship = loadImage("spaceship.png");
   calm = loadFont("AgencyFB-Bold-48.vlw");
   //colours 
   night = #1f1a24;
   ray = #decb9f;
   stars = #eeecde;
+ 
     
 }
 
@@ -65,5 +67,11 @@ void draw(){
   point(142,131);// 11
   point(15,138);// 12
   
- 
+  // this saves the canvas on the first frame
+  // so we can get a clean image of the output easily
+  if (frameCount == 1) {
+    String filename = "output";
+    save(filename + ".png");
+    print("canvas saved as " + filename + ".png");
+  }
 }
