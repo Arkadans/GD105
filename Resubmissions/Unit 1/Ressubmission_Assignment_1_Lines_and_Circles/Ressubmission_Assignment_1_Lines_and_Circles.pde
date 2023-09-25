@@ -1,3 +1,4 @@
+// For this resubmission I renamed the vectors and combined them so instead of having many parts I only have the body and roof of the car. I also created float values so I can edit the proportion of the cars easily. 
 void setup() {
   size(1024, 1024);
   println("I am a military humveee");
