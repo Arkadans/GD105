@@ -50,7 +50,7 @@ void draw() {
   text("THE UNIVERSE", fAlign, 765);
   
   //Pixel art alien space ship that I made
-  image(spaceship, 150, 50);
+  //image(spaceship, 150, 50);
   
  
   // Animated Stars
@@ -92,7 +92,9 @@ void draw() {
   point(131,100);// 10
   point(142,131);// 11
   point(15,138);// 12
-  
+  resetMatrix();
+   //Pixel art alien space ship that I made
+  image(spaceship, 150, 50);
   
 
 
