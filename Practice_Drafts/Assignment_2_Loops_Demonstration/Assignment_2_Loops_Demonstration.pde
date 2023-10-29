@@ -4,7 +4,7 @@ void setup() {
 }
 
 void draw() {
-  background(3);
+  background(255);
 
   //int i = 0;
   //while (i < 320) {
@@ -13,19 +13,20 @@ void draw() {
 
   //}
 
- 
-  float gridStep = 0.025;
+  //float gridStep = 0.025;
+  //fill(1);
+  //square(width/2, height/2, width*0.50);
+  //noFill();
+  //stroke(255);
   
-  fill(1);
-  square(width/2, height/2, width*0.50);
-  noFill();
-  stroke(255);
-  for ( float y = height * 0.25; y <= height * 0.75; y += height * gridStep) {
-    for (float x = width * 0.25; x <= width * 0.75; x += width*gridStep ) {
-      resetMatrix();
-      translate(x, y); 
-      rotate((x + y)*2.88 + frameCount*-0.01); 
-      square(0, 0, gridStep * 14.93 * width);
-    }
+  // For loops in tandem with repeated transormations. 
+
+  translate(width/2, height/2); 
+  circle(0, 0, 730); 
+  circle(0, 0, 580); 
+  for (float y = 0; y < 103; y += 1) {
+    translate(0, 0); 
+    line(300, 0, 350, 50); 
+    rotate (TAU / 103); 
   }
 }
