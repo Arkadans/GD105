@@ -36,7 +36,7 @@ void draw() {
         square((width/2) + move, (height/2) + move, sizes);
         // outline squares
         // floats sA and sB lets you move the outline squares around
-        float sA = 4; 
+        float sA = 4;
         float sB = 1.35;
         noFill();
         // Top Left outline Square
@@ -55,6 +55,12 @@ void draw() {
         move = move + 31.0; // Controlls the movement torwards the center
         fade = fade -10.0; // Controlls the level of fade on each color
         sizes = sizes + 55.0; // Controlls how many times the squares changes size
+
+        if (frameCount == 1) {
+          String filename = "output";
+          save(filename + ".png");
+          print("canvas saved as " + filename + ".png");
+        }
       }
     }
   }
