@@ -1,8 +1,4 @@
-// Ressubmission Tip: Try to not have so many for loops inside each other.
-// Ressubmission Tip: Include Arrays, even if it's just for color. 
-// Ressubmission Tip: Make moving the stuff around more intuitive. 
-
-color pink, green, blue, orange;
+color[] colors; 
 
 void setup() {
   size(1000, 1000);
@@ -10,66 +6,63 @@ void setup() {
   //Link to the original piece: https://www.artsy.net/artwork/chul-hyun-ahn-visual-echo-experiment"
   rectMode(CENTER);
   
-  pink = #FF0D7E;
-  green = #B3F000;
-  blue = #12FFF1;
-  orange = #FF7708;
+  colors = new color[4];
+  colors[0] = #FF0D7E; // Pink
+  colors[1] = #B3F000; // Green
+  colors[2] = #12FFF1; // Blue
+  colors[3] = #FF7708; // Orange
 }
 void draw() {
   background(#000000);
   noStroke();
 
-  float maxMove = 200;
-  float maxFade = 0;
-  float maxSize = 450;
-
-  for (float move = 0.00; move < maxMove; move++) { // Controlls the movement torwards the center
-    for (float fade = 100; fade > maxFade; fade++) { // Controlls the level of fade on each color
-      for (float sizes = 0; sizes < maxSize; sizes++) { // Controlls how many times the squares changes size
+  int maxMove = 200; 
+  int maxFade = 0; 
+  int maxSize = 450;
+  
+  for (int move = 0; move < maxMove; move++) { // Controlls the movement torwards the center
+    for (int fade = 100; fade > maxFade; fade++) { // Controlls the level of fade on each color
+      for (int sizes = 0; sizes < maxSize; sizes++) { // Controlls how many times the squares changes size
       
         // Top Left Solid Square
         noStroke();
-        fill(pink, fade);
+        fill(colors[0], fade);
         square((width/2) - move, (height/2) - move, sizes);
 
         // Top Right Solid Square
-        fill(green, fade);
+        fill(colors[1], fade);
         square((width/2) + move, (height/2) - move, sizes);
 
         // Bottom Left Solid  Square
-        fill(blue, fade);
+        fill(colors[2], fade);
         square((width/2) - move, (height/2) + move, sizes);
 
         // Bottom Right solid Square
-        fill(orange, fade);
+        fill(colors[3], fade);
         square((width/2) + move, (height/2) + move, sizes);
 
-        // outline squares
-        // floats sA and sB lets you move the outline squares around
-        float sA = 4;
-        float sB = 1.35;
-        noFill();
-        
+        // outline squares      
+        noFill();       
         // Top Left outline Square
-        stroke(pink);
-        square((width/sA), (height/sA), sizes);
+        stroke(colors[0]);
+        square((width/4), (height/4), sizes);
 
-        // Top Right outline  Square
-        stroke(green);
-        square((width/sB), (height/sA), sizes);
+        // Top Right outline Square
+        stroke(colors[1]);
+        square((width/1.35), (height/4), sizes);
 
-        // Bottom Left outline  Square
-        stroke(blue);
-        square((width/sA), (height/sB), sizes);
+        // Bottom Left outline Square
+        stroke(colors[2]);
+        square((width/4), (height/1.35), sizes);
 
         // Bottom Right outline Square
-        stroke(orange);
-        square((width/sB), (height/sB), sizes);
+        stroke(colors[3]);
+        square((width/1.35), (height/1.35), sizes);
 
         // lets you change how the art looks
-        move = move + 31.0; // Controlls the movement torwards the center
-        fade = fade -10.0; // Controlls the level of fade on each color
-        sizes = sizes + 55.0; // Controlls how many times the squares changes size
+        move = move + 31; // Controlls the movement torwards the center
+        fade = fade -10; //(-1 ~ -100): Controlls the level of fade on each color 
+        sizes = sizes + 55; // Controlls how many times the squares changes size
       }
     }
   }
