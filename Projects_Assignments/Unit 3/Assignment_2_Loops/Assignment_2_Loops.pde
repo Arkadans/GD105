@@ -42,4 +42,10 @@ void draw() {
     circle(0, -8, -26);
     rotate (TAU / 5 + frameCount * 0.0300);
   }
+  //Saves a picture of the image
+  if (frameCount == 60) {
+    String filename = "output";
+    save(filename + ".png");
+    print("canvas saved as " + filename + ".png");
+  }
 }

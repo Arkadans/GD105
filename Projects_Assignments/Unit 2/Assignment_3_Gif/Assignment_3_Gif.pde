@@ -59,8 +59,8 @@ void draw(){
   resetMatrix();
   
   // saves frames during the first cycle of rotation
-  saveFrame("frames/####.png");
-  println("saved " + frameCount + ".png");
+  //saveFrame("frames/####.png");
+  //println("saved " + frameCount + ".png");
 
 }
 // creates the black circle around each shape
@@ -68,6 +68,13 @@ void drawBorder(){
   noStroke();
   fill(black); 
   circle(0, 0, 165);
+  
+  // Saves a picture of the image
+  if (frameCount == 60) {
+    String filename = "output";
+    save(filename + ".png");
+    print("canvas saved as " + filename + ".png");
+  }
 }
 
  

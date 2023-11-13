@@ -39,7 +39,13 @@ void draw () {
   // Shades the canvas 
   fill(#3a213a, 2);    // makes so old shapes start to fade. 
   rect(0 , 0, width , height);    // makes so old shapes start to fade. 
-  
+ 
+  // Saves an image after the screen saver runs 60 frames. 
+  if (frameCount == 60) {
+    String filename = "output";
+    save(filename + ".png");
+    print("canvas saved as " + filename + ".png");
+  }
 }
 
 

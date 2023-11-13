@@ -91,4 +91,11 @@ void draw() {
   rotate(TAU * 0.509);
   text(texts[8], mid.x -709, mid.y -20);
   resetMatrix();
+  
+  // Saves a picture of the final image produced
+   if (frameCount == 1) {
+    String filename = "output";
+    save(filename + ".png");
+    print("canvas saved as " + filename + ".png");
+  }
 }
